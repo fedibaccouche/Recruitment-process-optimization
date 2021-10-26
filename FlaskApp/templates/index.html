@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+  <title>Datatables Example</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css"/>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+<h1>My Heading</h1>
+<table id="example" class="display table table-striped table-bordered"
+       cellspacing="0" width="100%"></table>
+<script>
+
+
+function setupData() {
+    $(document).ready(function () {
+        $('#example').DataTable({
+            "responsive":true,
+            "ajax": {
+                
+                // "url": "static/objects2.txt", // This works for a static file
+                "url": "/index_get_data", // This now also works
+                "dataType": "json",
+                
+                "dataSrc": "data",
+                "contentType":"application/json"
+            },
+            "columns": [
+                {"title": "",
+                 "data": ""      },
+                
+                {"title": "connectionsCount",
+                 "data":"connectionsCount"
+                      },
+                {"title": "nobre de projets",
+                 "data":"nobre de projets"},
+                {"title": "Turnover",
+                "data":"Turnover"     },    
+                {"title": "Ingénieur",
+                 "data":  "Ingénieur"},
+                {"title": "Licence",
+                  "data":"Licence"},   
+                {"title": "Master",
+            "data":"Master"},
+                {"title": "Docteur","data":"Docteur"},
+                {"title": "BTS","data":"BTS"},
+                {"title": "BTP","data":"BTP"},
+                {"title": "Vide_degree","data":"Vide_degree"},
+                {"title": "Baccalauréat","data":"Baccalauréat"},
+                {"title": "Other","data":"Other"},
+                {"title": "YoungGraduate","data":"YoungGraduate"},
+                {"title": "Gender","data":"Gender"},
+                {"title": "profil","data":"profil"},
+                {"title": "score","data":"score"}
+              
+
+
+            ]
+        });
+    });
+}
+
+$( window ).on( "load", setupData );
+</script>
+</body>
+</html>
